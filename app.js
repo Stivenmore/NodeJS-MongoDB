@@ -14,29 +14,23 @@ const personSchema = mongoose.Schema({
 
 const PersonModel = mongoose.model('persons', personSchema)
 
-//Read
-const allperson = async () => {
-    const persons = await PersonModel.find()
-    console.log('Personas: '+ persons)
-    console.log('______________________________')
-}
 
 //Create User - C
 const create = async () => {
     const person = new PersonModel({
-        nombre: "Gloria",
-        edad: 22,
-        pais: "Venezuela"
+        nombre: "Mayte",
+        edad: 19,
+        pais: "Mexico"
     })
     const resultado = await person.save()
     console.log("create: "+person)
     console.log('______________________________')
 }
 
-//Delete one
-const deleteOne = async (id) => {
-    const person = await PersonModel.deleteOne({_id: id})
-    console.log("delete: "+person);
+//Read - R
+const allperson = async () => {
+    const persons = await PersonModel.find()
+    console.log('Personas: '+ persons)
     console.log('______________________________')
 }
 
@@ -54,7 +48,14 @@ const updateOne = async (id) => {
     console.log("update: "+person)
     console.log('______________________________')
 }
+
+//Delete one
+const deleteOne = async (id) => {
+    const person = await PersonModel.deleteOne({_id: id})
+    console.log("delete: "+person);
+    console.log('______________________________')
+}
 //deleteOne()
-//create()
+//reate()
 //updateOne("6179d505e41823a2d4d287bd")
 allperson()
